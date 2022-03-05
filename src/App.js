@@ -9,7 +9,7 @@ function App() {
   const [bmi, setBmi] = useState('')
   const [message, setMessage] = useState('empty string')
 
-  let imgSrc = ''
+  
 
   let calcBmi = (event) => {
     event.preventDefault()
@@ -27,6 +27,19 @@ function App() {
       } else {
         setMessage('You are overweight')
       }
+    }
+  }
+  let imgSrc;
+  if(bmi< 1){
+    imgSrc = null
+
+  } else {
+    if(bmi < 25) {
+      imgSrc = require('../src/assets/underweight.png')
+    } else if (bmi >= 25 && bmi < 30) {
+      imgSrc = require('../src/assets/healthy.png')
+    } else {
+      imgSrc = require('../src/assets/overweight.png')
     }
   }
 
